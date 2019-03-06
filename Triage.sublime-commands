@@ -1,6 +1,6 @@
 [
-  { "caption": "Triage: Resolve issue under cursor",
-    "command": "resolve_issue",
+  { "caption": "Triage: Move issue to top",
+    "command": "workon_triage_entry",
   },
   { "caption": "Preferences: Triage Key Bindings",
     "command": "edit_settings",
