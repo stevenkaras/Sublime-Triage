@@ -5,7 +5,7 @@ import datetime
 
 class _TriageEntryCommand(sublime_plugin.TextCommand):
     def is_enabled(self):
-        return 'text.triage' in self.view.scope_name(0).split()
+        return self.view.match_selector(0, 'text.triage')
 
     def expand_to_triage_entry(self, region):
         begin = region.begin()
@@ -15,14 +15,14 @@ class _TriageEntryCommand(sublime_plugin.TextCommand):
         while begin != prev_begin:
             prev_begin = begin
             begin = self.view.find_by_class(begin, False, sublime.CLASS_LINE_START)
-            if 'meta.entry.triage' in self.view.scope_name(begin).split():
+            if self.view.match_selector(begin, 'meta.entry.triage'):
                 break
 
         prev_end = None
         while end != prev_end:
             prev_end = end
             end = self.view.find_by_class(end, True, sublime.CLASS_LINE_END)
-            if 'meta.entry.triage' in self.view.scope_name(self.view.line(end).begin()).split():
+            if self.view.match_selector(self.view.line(end).begin(), 'meta.entry.triage'):
                 end = self.view.line(end).begin()
                 break
 
