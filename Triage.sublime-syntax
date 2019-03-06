@@ -1,0 +1,13 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+file_extensions:
+  - triage
+scope: text.triage
+contexts:
+  main:
+    - match: '^(\d{8}) - (.*)$'
+      scope: meta.entry.triage
+      captures:
+        1: constant.numeric.date.triage
+        2: markup.title.triage entity.name.section
