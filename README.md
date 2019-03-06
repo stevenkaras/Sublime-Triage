@@ -23,7 +23,6 @@ Pull requests welcome.
 These are good ideas of things to start helping out with:
 
 - helper command to resolve the currently selected issue (based on cursor position)
-- helper to print the current date in yyyymmdd format
 
 # License
 

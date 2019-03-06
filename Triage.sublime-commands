@@ -1,0 +1,12 @@
+[
+  { "caption": "Triage: Resolve issue under cursor",
+    "command": "resolve_issue",
+  },
+  { "caption": "Preferences: Triage Key Bindings",
+    "command": "edit_settings",
+    "args": {
+      "base_file": "${packages}/Triage/Default (${platform}).sublime-keymap",
+      "default": "[\n\t$0\n]\n"
+    }
+  }
+]
