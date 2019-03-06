@@ -1,3 +1,7 @@
 [
-    { "keys": ["ctrl+shift+;"], "command": "insert_date", },
+    { "keys": ["ctrl+shift+;"], "command": "insert_date", "context":
+        [
+            { "key": "selector", "operator": "equal", "operand": "text.triage", "match_all": true },
+        ]
+    },
 ]
