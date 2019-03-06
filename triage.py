@@ -70,3 +70,33 @@ class WorkonTriageEntryCommand(_TriageEntryCommand):
             end += self.view.insert(edit, 0, entry)
 
         selections.add(sublime.Region(0, end))
+
+
+class ResolveTriageEntryCommand(_TriageEntryCommand):
+    def description(self):
+        return 'Resolve triage entry'
+
+    def run(self, edit):
+        triage_path = self.view.file_name()
+
+        import os.path
+        archive_path = '../.triage/%s' % datetime.datetime.utcnow().strftime('%Y%m%d')
+        archive_file = os.path.normpath(os.path.join(triage_path, archive_path))
+
+        selections = self.view.sel()
+        entries = [self.expand_to_triage_entry(selection) for selection in selections]
+        selections.clear()
+        entries = sorted(entries, key=lambda entry: entry.a)
+        entry_text = [
+            self.view.substr(entry)
+            for entry in entries
+        ]
+
+        os.makedirs(os.path.dirname(archive_file), exist_ok=True)
+        with open(archive_file, 'a') as f:
+            for entry in entry_text:
+                f.write(entry)
+                f.write('    Marked as resolved at %s\n' % (datetime.datetime.utcnow().strftime('%Y%m%d %H:%M:%S')))
+
+        for entry in reversed(entries):
+            self.view.erase(edit, entry)
