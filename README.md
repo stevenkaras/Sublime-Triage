@@ -2,7 +2,6 @@
 
 This package provides syntax highlighting for a simple todo-list format I use.
 
-
 ## Installation - [Package Control][package-control]
 
 I don't expect this to be a popular package, so it won't be added to Package Control unless I see there's demand for it.
@@ -22,7 +21,9 @@ Pull requests welcome.
 
 These are good ideas of things to start helping out with:
 
-- helper command to resolve the currently selected issue (based on cursor position)
+- check if an external triage script is installed and invoke external tool
+- command for creating a new entry with todays date at top
+- command for formatting triage file
 
 # License
 
