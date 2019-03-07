@@ -73,6 +73,12 @@ class WorkonTriageEntryCommand(_TriageEntryCommand):
 
 
 class ResolveTriageEntryCommand(_TriageEntryCommand):
+    def is_enabled(self):
+        if not super(ResolveTriageEntryCommand, self).is_enabled():
+            return False
+
+        return self.view.file_name() is not None
+
     def description(self):
         return 'Resolve triage entry'
 
@@ -100,3 +106,5 @@ class ResolveTriageEntryCommand(_TriageEntryCommand):
 
         for entry in reversed(entries):
             self.view.erase(edit, entry)
+
+        self.view.run_command('save')
