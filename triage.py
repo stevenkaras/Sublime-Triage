@@ -107,4 +107,7 @@ class ResolveTriageEntryCommand(_TriageEntryCommand):
         for entry in reversed(entries):
             self.view.erase(edit, entry)
 
-        self.view.run_command('save')
+        def _save_callback():
+            self.view.run_command('save')
+
+        sublime.set_timeout(_save_callback, 0)
