@@ -1,5 +1,5 @@
 [
-    { "keys": ["super+shift+;"], "command": "insert_date", "context":
+    { "keys": ["super+shift+;"], "command": "new_triage_entry", "context":
         [
             { "key": "selector", "operator": "equal", "operand": "text.triage", "match_all": true },
         ]

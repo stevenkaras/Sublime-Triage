@@ -39,6 +39,23 @@ class InsertDateCommand(_TriageEntryCommand):
             self.view.insert(edit, selection.begin(), current_date)
 
 
+class NewTriageEntryCommand(_TriageEntryCommand):
+    def description(self):
+        return 'Create new triage entry'
+
+    def run(self, edit):
+        current_date = datetime.datetime.utcnow().strftime('%Y%m%d')
+        entry_preamble = '%s - \n' % current_date
+        # set the selection to the top of the file
+        self.view.insert(edit, 0, entry_preamble)
+        selection = self.view.sel()
+        selection.clear()
+        entry_preamble_length = len(entry_preamble) - 1
+        preamble_region = sublime.Region(entry_preamble_length, entry_preamble_length)
+        selection.add(preamble_region)
+        self.view.show(preamble_region)
+
+
 class SelectTriageEntryCommand(_TriageEntryCommand):
     def description(self):
         return 'Select triage entry'
