@@ -8,6 +8,9 @@
   { "caption": "Triage: Move issue to top",
     "command": "workon_triage_entry",
   },
+  { "caption": "Triage: Move issue to bottom",
+    "command": "defer_triage_entry",
+  },
   { "caption": "Preferences: Triage Key Bindings",
     "command": "edit_settings",
     "args": {

@@ -89,6 +89,29 @@ class WorkonTriageEntryCommand(_TriageEntryCommand):
         selections.add(sublime.Region(0, end))
 
 
+class DeferTriageEntryCommand(_TriageEntryCommand):
+    def description(self):
+        return 'Move triage entry to bottom'
+
+    def run(self, edit):
+        selections = self.view.sel()
+        entries = [self.expand_to_triage_entry(selection) for selection in selections]
+        selections.clear()
+        entries = sorted(entries, key=lambda entry: entry.a)
+        entry_text = [
+            self.view.substr(entry)
+            for entry in entries
+        ]
+        for entry in reversed(entries):
+            self.view.erase(edit, entry)
+        start = self.view.size()
+        end = start
+        for entry in entry_text:
+            end += self.view.insert(edit, start, entry)
+
+        selections.add(sublime.Region(start, end))
+
+
 class ResolveTriageEntryCommand(_TriageEntryCommand):
     def is_enabled(self):
         if not super(ResolveTriageEntryCommand, self).is_enabled():
