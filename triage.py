@@ -128,3 +128,5 @@ class ResolveTriageEntryCommand(_TriageEntryCommand):
             self.view.run_command('save')
 
         sublime.set_timeout(_save_callback, 0)
+        # leave a cursor where the top most entry used to be
+        selections.add(sublime.Region(entries[0].a, entries[0].a))
