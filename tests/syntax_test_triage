@@ -1,0 +1,7 @@
+# SYNTAX TEST "Packages/Sublime-Triage/Triage.sublime-syntax"
+
+20190101 - some title
+# <- meta.entry.triage constant.numeric.date.triage
+#^^^^^^^ meta.entry.triage constant.numeric.date.triage
+#          ^^^^^^^^^^ meta.entry.triage markup.title.triage entity.name.section
+
