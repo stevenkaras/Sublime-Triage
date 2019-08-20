@@ -5,3 +5,13 @@
 #^^^^^^^ meta.entry.triage constant.numeric.date.triage
 #          ^^^^^^^^^^ meta.entry.triage markup.title.triage entity.name.section
 
+
+# <- text.triage - meta.entry.triage
+20190820 - embedded code fences
+    ```bash
+#   ^^^ meta.entry.triage meta.code-fence.definition.begin.shell-script.markdown-gfm punctuation.definition.raw.code-fence.begin.markdown    
+#   ^^^^^^^^ meta.entry.triage meta.code-fence.definition.begin.shell-script.markdown-gfm
+#      ^^^^^ text.triage meta.entry.triage meta.code-fence.definition.begin.shell-script.markdown-gfm constant.other.language-name.markdown
+    echo hi
+    ```
+#   ^^^ meta.entry.triage meta.code-fence.definition.end.shell-script.markdown-gfm punctuation.definition.raw.code-fence.end.markdown

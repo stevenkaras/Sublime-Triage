@@ -15,14 +15,14 @@ class _TriageEntryCommand(sublime_plugin.TextCommand):
         while begin != prev_begin:
             prev_begin = begin
             begin = self.view.find_by_class(begin, False, sublime.CLASS_LINE_START)
-            if self.view.match_selector(begin, 'meta.entry.triage'):
+            if self.view.match_selector(begin, 'meta.entry.line'):
                 break
 
         prev_end = None
         while end != prev_end:
             prev_end = end
             end = self.view.find_by_class(end, True, sublime.CLASS_LINE_END)
-            if self.view.match_selector(self.view.line(end).begin(), 'meta.entry.triage'):
+            if self.view.match_selector(self.view.line(end).begin(), 'meta.entry.line'):
                 end = self.view.line(end).begin()
                 break
 

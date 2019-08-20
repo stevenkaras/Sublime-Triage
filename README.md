@@ -22,7 +22,6 @@ Pull requests welcome.
 These are good ideas of things to start helping out with:
 
 - check if an external triage script is installed and invoke external tool
-- add support for code fences
 - add more tests for syntax highlighting
 - command for formatting triage file
 
