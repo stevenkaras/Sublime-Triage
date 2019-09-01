@@ -5,7 +5,7 @@
    <key>name</key>
    <string>Symbol List</string>
    <key>scope</key>
-   <string>text.triage meta.entry.triage</string>
+   <string>text.triage meta.entry.line</string>
    <key>settings</key>
    <dict>
       <key>showInSymbolList</key>
