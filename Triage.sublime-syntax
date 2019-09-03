@@ -48,7 +48,7 @@ contexts:
       scope: meta.entry.line
       captures:
         1: constant.numeric.date.triage
-        2: markup.title.triage entity.name.section
+        2: markup.heading.triage entity.name.section.triage
       push: triage-entry
   triage-entry:
     - meta_scope: meta.entry.triage
